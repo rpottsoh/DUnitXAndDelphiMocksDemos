@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{BFD1609C-D03C-4761-8785-94FA8C3BCEEE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CalculatorTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DollarsToGalleonsTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CCValidatorTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TestWidgetProcessor.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CalculatorTests">
+        <MSBuild Projects="CalculatorTests.dproj"/>
+    </Target>
+    <Target Name="CalculatorTests:Clean">
+        <MSBuild Projects="CalculatorTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CalculatorTests:Make">
+        <MSBuild Projects="CalculatorTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DollarsToGalleonsTests">
+        <MSBuild Projects="DollarsToGalleonsTests.dproj"/>
+    </Target>
+    <Target Name="DollarsToGalleonsTests:Clean">
+        <MSBuild Projects="DollarsToGalleonsTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DollarsToGalleonsTests:Make">
+        <MSBuild Projects="DollarsToGalleonsTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CCValidatorTests">
+        <MSBuild Projects="CCValidatorTests.dproj"/>
+    </Target>
+    <Target Name="CCValidatorTests:Clean">
+        <MSBuild Projects="CCValidatorTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CCValidatorTests:Make">
+        <MSBuild Projects="CCValidatorTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestWidgetProcessor">
+        <MSBuild Projects="TestWidgetProcessor.dproj"/>
+    </Target>
+    <Target Name="TestWidgetProcessor:Clean">
+        <MSBuild Projects="TestWidgetProcessor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestWidgetProcessor:Make">
+        <MSBuild Projects="TestWidgetProcessor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CalculatorTests;DollarsToGalleonsTests;CCValidatorTests;TestWidgetProcessor"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CalculatorTests:Clean;DollarsToGalleonsTests:Clean;CCValidatorTests:Clean;TestWidgetProcessor:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CalculatorTests:Make;DollarsToGalleonsTests:Make;CCValidatorTests:Make;TestWidgetProcessor:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
